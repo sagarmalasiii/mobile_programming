@@ -18,6 +18,7 @@ public class DetailActivity extends AppCompatActivity {
 
     Dbhelper dbhelper;
     String id;
+    ImageView imageView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class DetailActivity extends AppCompatActivity {
         address = findViewById(R.id.address);
         phone = findViewById(R.id.phone);
         gender = findViewById(R.id.gender);
+        imageView = findViewById(R.id.image);
 
 
         findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
@@ -46,9 +48,9 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailActivity.this, RegisterActivity.class);
-                intent.putExtra("id",Integer.parseInt(id));
+                intent.putExtra("id", Integer.parseInt(id));
 
-               startActivity(intent);
+                startActivity(intent);
             }
         });
 
@@ -85,6 +87,8 @@ public class DetailActivity extends AppCompatActivity {
         email.setText(info.email);
         address.setText(info.address);
         gender.setText(info.gender);
+        if (info.image != null)
+            imageView.setImageBitmap(RegisterActivity.byteArrayToBitmap(info.image));
 
 
     }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,15 +34,18 @@ public class UserlistActivity extends AppCompatActivity {
         displayUsers();
     }
 
-    public void displayUsers(){
+    public void displayUsers() {
         ArrayList<Userinfo> list = dbhelper.getUserList();
         container.removeAllViews();
-        for (Userinfo info:list  ) {
+        for (Userinfo info : list) {
 
-            View view = LayoutInflater.from(this).inflate(R.layout.item_layout,null);
+            View view = LayoutInflater.from(this).inflate(R.layout.item_layout, null);
             TextView username = view.findViewById(R.id.username);
+            ImageView imageView = view.findViewById(R.id.image);
 
             username.setText(info.username);
+            if (info.image != null)
+                imageView.setImageBitmap(RegisterActivity.byteArrayToBitmap(info.image));
 
 //            TextView textView = new TextView(this);
 //            textView.setText("Name:"+info.username);
@@ -49,11 +53,12 @@ public class UserlistActivity extends AppCompatActivity {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(UserlistActivity.this,DetailActivity.class);
-                    intent.putExtra("id",info.id);
+                    Intent intent = new Intent(UserlistActivity.this, DetailActivity.class);
+                    intent.putExtra("id", info.id);
                     startActivity(intent);
 
-                }});
+                }
+            });
             container.addView(view);
 
 
