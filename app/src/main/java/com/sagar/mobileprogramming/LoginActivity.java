@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> {
             String enteredUser = etUsername.getText().toString().trim();
             String enteredPass = etPassword.getText().toString().trim();
-            Intent intent = new Intent(LoginActivity.this, UserlistActivity.class);
+            Intent intent = new Intent(LoginActivity.this, UserListViewActivity.class);
             startActivity(intent);
             finish();
             // Retrieve data stored from RegisterActivity
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
 
-                Intent intent1 = new Intent(LoginActivity.this, UserlistActivity.class);
+                Intent intent1 = new Intent(LoginActivity.this, UserListViewActivity.class);
                 startActivity(intent);
                 finish();
 

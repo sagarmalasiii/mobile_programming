@@ -27,6 +27,7 @@
         <activity
             android:name=".UserlistActivity"
             android:exported="false" />
+        <activity android:name=".UserListViewActivity"/>
         <activity android:name=".DetailActivity" android:exported="false"/>
     </application>
 

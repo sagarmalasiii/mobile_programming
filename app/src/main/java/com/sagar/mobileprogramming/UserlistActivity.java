@@ -47,8 +47,6 @@ public class UserlistActivity extends AppCompatActivity {
             if (info.image != null)
                 imageView.setImageBitmap(RegisterActivity.byteArrayToBitmap(info.image));
 
-//            TextView textView = new TextView(this);
-//            textView.setText("Name:"+info.username);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
