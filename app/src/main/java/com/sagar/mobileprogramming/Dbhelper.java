@@ -37,7 +37,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         getWritableDatabase().insert("user","",values);
     }
     @SuppressLint("Range")
-    public ArrayList<Userinfo>getUserList(){
+    public ArrayList<Userinfo> getUserList(){
         String sql = "Select * from user";
         ArrayList<Userinfo>list = new ArrayList<>();
 

@@ -1,6 +1,7 @@
 package com.sagar.mobileprogramming;
 
 import android.os.Bundle;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UserListViewActivity extends AppCompatActivity {
 
     ListView listView;
+    GridView gridView;
 
     Dbhelper dbhelper;
 
@@ -19,8 +21,11 @@ public class UserListViewActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listview);
         dbhelper = new Dbhelper(this);
+        gridView = findViewById(R.id.gridView);
+
 
         listView.setAdapter(new UserListAdapter(this,dbhelper.getUserList()));
+        gridView.setAdapter(new UserListAdapter(this,dbhelper.getUserList()));
 
 
     }
